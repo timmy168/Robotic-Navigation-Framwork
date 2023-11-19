@@ -44,8 +44,9 @@ class Map:
     
     def construct_image(self, pcd):
         # create scatter plot
-        px = 1/plt.rcParams['figure.dpi']
-        plt.figure(figsize=(1700 * px, 1100 * px))
+        pixel_per_inches = 1/plt.rcParams['figure.dpi']
+        plt.figure(figsize=(1700 * pixel_per_inches, 
+                            1100 * pixel_per_inches))
         points = np.asarray(pcd.points)
         plt.scatter(points[:, 2], points[:, 0],s=5, c = np.asarray(pcd.colors), marker='o')
 
@@ -56,6 +57,11 @@ class Map:
         plt.savefig('map.png', bbox_inches = 'tight', pad_inches = 0)
 
         plt.show()
+        
+        # reverse transform
+        # x_restored = u * (points[:, 2].max() - points[:, 2].min()) + points[:, 2].min()
+        # z_restored = (points[:, 0].max() - v) * (points[:, 0].max() - points[:, 0].min()) / (points[:, 0].max() - points[:, 0].min()) + points[:, 0].min()
+
 
 if __name__ == '__main__':
     point_path = "semantic_3d_pointcloud/point.npy"
