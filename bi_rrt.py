@@ -181,7 +181,7 @@ class RRTree:
                          (int(Tree_A[nearest_index].x),
                           int(Tree_A[nearest_index].y)), 
                           (0,255,0), thickness=1, lineType=8)
-                cv2.imwrite("Path/"+str(i)+".jpg",self.map)
+                cv2.imwrite("bi-RRT_Path/"+str(i)+".jpg",self.map)
                 cv2.imshow("image",self.map)
                 cv2.waitKey(1)
                 
@@ -190,7 +190,7 @@ class RRTree:
                 extend_connect, index = self.extend(Tree_A,Tree_B,self.dilation)
 
                 if extend_connect :
-                    print("Path is successfully formulated")
+                    print("bi-RRT Path is successfully formulated")
                     path = []
                     cv2.line(self.map, 
                              (int(new_node_x),int(new_node_y)), 
@@ -215,11 +215,11 @@ class RRTree:
                     for i in range(len(path)-1):
                         cv2.line(self.map, (int(path[i][0]),int(path[i][1])), (int(path[i+1][0]),int(path[i+1][1])), (255,0,0), thickness=2, lineType=8)
                     cv2.waitKey(1)
-                    cv2.imwrite("Path/"+str(i)+".jpg",self.map)
+                    cv2.imwrite("bi-RRT_Path/"+str(i)+".jpg",self.map)
                     if(self.target == " "):
                         cv2.imwrite("birrt.jpg",self.map)
                     else:
-                        cv2.imwrite("path/"+self.target+".jpg",self.map)
+                        cv2.imwrite("bi-RRT_Path/"+self.target+".jpg",self.map)
                     break
             else:
                 continue
@@ -269,10 +269,10 @@ if __name__ == '__main__':
 
     # remove previously stored data
     try:
-      os.system("rm -rf Path")
+      os.system("rm -rf bi-RRT_Path")
     except:
       print("Directory is not exist")
-    os.mkdir("Path")
+    os.mkdir("bi-RRT_Path")
 
     target = args.End
     rrt = RRTree(args.imagePath, args.offset, 10000)
