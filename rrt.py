@@ -278,8 +278,8 @@ if __name__ == '__main__':
     rrt = RRTree(args.imagePath, args.offset, 10000)
 
     coordinates=[]
-    print("Set the start point and goal point by double click on the image\n")
-    print("Or press 'escape' to exit")
+    print("Set the start point and goal point by double click on the image")
+    print("Or press ESC to exit")
     cv2.namedWindow('image')
     cv2.setMouseCallback('image', draw_circle)
     while(1):
