@@ -34,9 +34,10 @@ class RRTree:
 
     def set_target(self,target):
         object = {"refrigerator":(455,457),
-                  "lamp":(894,657),
-                  "cushion":(1039,454),
                   "rack":(748,284),
+                  "cushion":(1039,454),
+                  "lamp":(977,716),
+                  "stair":(1075,80),
                   "cooktop":(380,545)}
         x = object[target][0]
         y = object[target][1]
