@@ -196,7 +196,12 @@ def driver(pre_node,start,end):
 
 pre_node = []
 start = path[0]
-final = {"refrigerator":(255, 0, 0),"rack":(0, 255, 133),"cushion":(255, 9, 92),"lamp":(160, 150, 20),"cooktop":(7, 255, 224)}
+goal = {"refrigerator":(255, 0, 0),
+        "rack":(0, 255, 133),
+        "cushion":(255, 9, 92),
+        "lamp":(160, 150, 20),
+        "stair":(173,255,0),
+        "cooktop":(7, 255, 224)}
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description = 'Below are the params:')
@@ -211,7 +216,7 @@ if __name__ == '__main__':
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     videowriter = cv2.VideoWriter(video_path, fourcc, 100, (512, 512))
 
-    end_rgb = final[args.End]
+    end_rgb = goal[args.End]
     r = end_rgb[0]
     g = end_rgb[1]
     b = end_rgb[2]
