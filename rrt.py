@@ -28,11 +28,12 @@ class RRTree:
         self.target = " "
 
     def set_target(self, target):
-        object_positions = {"refrigerator": (455, 457),
-                            "lamp": (894, 657),
-                            "cushion": (1039, 454),
-                            "rack": (748, 284),
-                            "cooktop": (380, 545)}
+        object_positions = {"refrigerator":(455,457),
+                            "rack":(748,284),
+                            "cushion":(1039,454),
+                            "lamp":(977,716),
+                            "stair":(1075,80),
+                            "cooktop":(380,545)}
         x, y = object_positions[target]
         self.target = target
         self.goal = (x, y)
